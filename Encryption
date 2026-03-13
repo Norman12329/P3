@@ -1,13 +1,9 @@
-from cryptography.fernet import Fernet
+<?php
 
-# Generate key (in real system, save it safely)
-key = Fernet.generate_key()
-cipher = Fernet(key)
+$password = "mypassword";
 
-password = "mypassword"
-encrypted = cipher.encrypt(password.encode())
-decrypted = cipher.decrypt(encrypted).decode()
+$hashed = password_hash($password, PASSWORD_DEFAULT);
 
-print("Original password:", password)
-print("Encrypted password:", encrypted)
-print("Decrypted password:", decrypted)
+echo "Encrypted Password: ".$hashed;
+
+?>
