@@ -1,8 +1,14 @@
-import os
-from dotenv import load_dotenv
+<?php
 
-# Load .env file
-load_dotenv()
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "users";
 
-db_name = os.getenv("DB_NAME")
-print("Database name from environment:", db_name)
+$conn = mysqli_connect($host,$user,$password,$dbname);
+
+if(!$conn){
+die("Connection failed");
+}
+
+?>
