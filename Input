@@ -1,0 +1,6 @@
+age = input("Enter your age: ")
+
+if age.isdigit() and 0 < int(age) < 120:
+    print("Valid age:", age)
+else:
+    print("Invalid input. Please enter a number between 1 and 119")
