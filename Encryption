@@ -1,0 +1,13 @@
+from cryptography.fernet import Fernet
+
+# Generate key (in real system, save it safely)
+key = Fernet.generate_key()
+cipher = Fernet(key)
+
+password = "mypassword"
+encrypted = cipher.encrypt(password.encode())
+decrypted = cipher.decrypt(encrypted).decode()
+
+print("Original password:", password)
+print("Encrypted password:", encrypted)
+print("Decrypted password:", decrypted)
