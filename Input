@@ -1,6 +1,16 @@
-age = input("Enter your age: ")
+<?php
 
-if age.isdigit() and 0 < int(age) < 120:
-    print("Valid age:", age)
-else:
-    print("Invalid input. Please enter a number between 1 and 119")
+$username = $_POST['username'];
+$email = $_POST['email'];
+
+if(empty($username) || empty($email)){
+    echo "Fields cannot be empty";
+}
+elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    echo "Invalid email format";
+}
+else{
+    echo "Input is valid";
+}
+
+?>
