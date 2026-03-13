@@ -1,0 +1,8 @@
+import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
+
+db_name = os.getenv("DB_NAME")
+print("Database name from environment:", db_name)
