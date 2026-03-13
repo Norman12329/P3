@@ -1,16 +1,15 @@
-import hashlib
+<?php
+include "Configuration.php";
 
-secret = "mysecret"
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-def hash_password(password):
-    return hashlib.sha256((password + secret).encode()).hexdigest()
+$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$result = mysqli_query($conn,$sql);
 
-users = {"admin": hash_password("1234")}
-
-username = input("Username: ")
-password = input("Password: ")
-
-if username in users and users[username] == hash_password(password):
-    print("Login successful")
-else:
-    print("Login failed")
+if(mysqli_num_rows($result) > 0){
+    echo "Login Successful";
+}else{
+    echo "Login Failed";
+}
+?>
