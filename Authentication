@@ -1,0 +1,16 @@
+import hashlib
+
+secret = "mysecret"
+
+def hash_password(password):
+    return hashlib.sha256((password + secret).encode()).hexdigest()
+
+users = {"admin": hash_password("1234")}
+
+username = input("Username: ")
+password = input("Password: ")
+
+if username in users and users[username] == hash_password(password):
+    print("Login successful")
+else:
+    print("Login failed")
